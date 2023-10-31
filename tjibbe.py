@@ -3,7 +3,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
 from matplotlib.cm import ScalarMappable
-df= pd.read_csv(r"C:\Users\tjibb\Documents\school\jaar_3\minor\eind_prestentatie\weerstations5.csv", sep= ";")
+df= pd.read_csv(r"C:\Users\tjibb\Documents\school\jaar_3\minor\eind_prestentatie\weerstations6.csv")
 gdf = gpd.GeoDataFrame(df, geometry=gpd.GeoSeries.from_wkt(df['WKT']))
 # gdf is je GeoDataFrame met geometrische gegevens
 
