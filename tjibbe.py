@@ -5,6 +5,8 @@ from matplotlib.colors import Normalize
 from matplotlib.cm import ScalarMappable
 df= pd.read_csv(r"C:\Users\tjibb\Documents\school\jaar_3\minor\eind_prestentatie\weerstations6.csv")
 gdf = gpd.GeoDataFrame(df, geometry=gpd.GeoSeries.from_wkt(df['WKT']))
+gdf['STN']=gdf['STN_y']
+gdf.drop(columns=['WKT', 'STN_x', 'STN_y'], inplace=True)
 # gdf is je GeoDataFrame met geometrische gegevens
 
 # Definieer een kleurenmapping op basis van de 'fid'-kolom
