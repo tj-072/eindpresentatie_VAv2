@@ -52,3 +52,25 @@ plt.title("Kaart met kleuren op basis van 'fid' en namen in het midden")
 
 # Toon de kaart
 plt.show()
+
+# Definieer een kleurenmapping op basis van de 'fid'-kolom
+colormap = plt.cm.get_cmap('afmhot')  # Kies een kleurenschema (hier 'viridis')
+norm = Normalize(vmin=gdf['ALT(m)'].min(), vmax=50)
+sm = ScalarMappable(cmap=colormap, norm=norm)
+sm.set_array([])
+
+# Aangepaste kaartplot met kleuren op basis van 'fid'
+fig, ax = plt.subplots(figsize=(10, 10))
+gdf.plot(ax=ax, color=sm.to_rgba(gdf['ALT(m)']), alpha=0.5, linewidth=0.5, edgecolor='k', legend=True)
+
+# Voeg een kleurenstaaf toe
+cbar = plt.colorbar(sm, ax=ax, label='ALT(m)')
+
+# Voeg een titel toe
+plt.title("Kaart met kleuren op basis van 'ALT(m)'")
+
+# Voeg punten toe op basis van 'LON(east)' en 'LAT(north)' kolommen
+plt.scatter(gdf['LON(east)'], gdf['LAT(north)'], color='red', label='Punten')
+
+# Toon de kaart
+plt.show()
