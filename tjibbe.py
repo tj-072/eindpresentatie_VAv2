@@ -18,6 +18,7 @@ sm.set_array([])
 # Aangepaste kaartplot met kleuren op basis van 'fid'
 fig, ax = plt.subplots(figsize=(10, 10))
 gdf.plot(ax=ax, color=sm.to_rgba(gdf['fid']), alpha=0.5, linewidth=0.5, edgecolor='k', legend=True)
+print("hallo")
 
 # Voeg een kleurenstaaf toe
 cbar = plt.colorbar(sm, ax=ax, label='fid')
