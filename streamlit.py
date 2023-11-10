@@ -136,10 +136,10 @@ with tab1:
             via de 'Zonder nul' knop. Door deze visualisatie is goed te zien wat normaal is voor dat gegeven en weerstation.
     """)
 
-    fig4 = plt.figure()
+    # fig4 = plt.figure()
     map_data = gpd.GeoDataFrame(map_data, geometry=gpd.GeoSeries.from_wkt(map_data['WKT']))
-    first = api_data[api_data['datetime'] == date(2021, 2, 1)]
-    ax = first.plot(linewidth=0.5,column='Windsnelheid (km/h)', legend=True, legend_kwds={"label": "Windsnelheid (km/h)"})
+    fig4, ax = plt.subplots(figsize=(10, 6))
+    api_data.plot(column='Windsnelheid (km/h)', legend=True, cmap='Blues', ax=ax, edgecolor='black')
 
     st.pyplot(fig4)
 
@@ -149,3 +149,6 @@ with tab2:
 
 with tab3:
     st.write('Vergelijkingen tussen weer en ongelukken')
+
+
+
