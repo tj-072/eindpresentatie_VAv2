@@ -137,11 +137,20 @@ with tab1:
     """)
 
     # fig4 = plt.figure()
+    selected_day = st.slider(
+        "When do you start?",
+        api_data['datetime'].min(),
+        api_data['datetime'].max(),
+        value=date(2021, 1, 1),
+        format="MM/DD/YY")
+    
     map_data = gpd.GeoDataFrame(map_data, geometry=gpd.GeoSeries.from_wkt(map_data['WKT']))
+    day = map_data[map_data['datetime'] == selected_day]
     fig4, ax = plt.subplots(figsize=(10, 6))
-    api_data.plot(column='Windsnelheid (km/h)', legend=True, cmap='Blues', ax=ax, edgecolor='black')
+    day.plot(column=Weermeting, legend=True, cmap='Blues', ax=ax, edgecolor='black', legend_kwds={"label": Weermeting})
 
     st.pyplot(fig4)
+
 
 
 with tab2:
