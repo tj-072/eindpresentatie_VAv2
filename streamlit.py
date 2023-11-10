@@ -19,6 +19,9 @@ tab1, tab2, tab3 = st.tabs(['Gegevens KNMI Weer', 'Gegevens ongelukken', 'Vegeli
 with tab1:
     st.title('Gegevens KNMI weer')
 
+    st.subheader('Kaart met weerstations per datum')
+    
+
     st.subheader('Lijndiagram')
     Weermeting = st.selectbox('Selecteer weermeting:', key='Weermeting', options=('Windsnelheid (km/h)', 'Windrichting (Graden)', 'Luchtdruk (ps)', 'Zichtbaarheid (Decimeter ver kunnen kijken)', 'Regenval (mm/h)',	'Temperatuur (C)', 'Weercode'))
     Station = st.selectbox('Selecteer station:', key='Station', options=('6209', '6225', '6235', '6240', '6242', '6248'
@@ -78,6 +81,8 @@ with tab1:
             origineel een NaN en zijn vervangen met een 0, om deze nullen weg te nemen is het mogelijk om dat te doen
             via de 'Zonder nul' knop. Door deze visualisatie is goed te zien wat normaal is voor dat gegeven en weerstation.
     """)
+
+
 
 with tab2:
     st.write('Gegevens ongelukken 2021')
